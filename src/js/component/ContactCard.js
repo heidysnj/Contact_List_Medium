@@ -1,17 +1,16 @@
-import React, { useState, useEffect, useContext } from "react";
-import { withRouter } from "react-router-dom";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import MikePhoto from "../../img/m101.jpg";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
-export const ContactCard = props => {
+export const ContactCard = () => {
 	const { store, actions } = useContext(Context);
 	console.log("storeeee", store.contacts);
 	return (
 		<div>
-			{store.contacts &&
-				store.contacts.map((e, index) => {
+			{store.contactsFB &&
+				store.contactsFB.map((e, index) => {
 					return (
 						<li key={index} className="list-group-item">
 							<div className="row w-100">
@@ -32,7 +31,7 @@ export const ContactCard = props => {
 										<button
 											className="btn"
 											onClick={() => {
-												actions.deleteContact(e.id);
+												actions.deleteContactFB(e.id);
 											}}>
 											<i className="fas fa-trash-alt" />
 										</button>
